@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
 
@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout main
-      - user: actions/checkout@main
+      - user: actions/checkout@master
