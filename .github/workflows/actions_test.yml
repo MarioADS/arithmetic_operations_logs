@@ -28,7 +28,8 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          git clone https://github.com/MarioADS/arithmetic_operations_logs.git
-          cd arithmetic_operations_logs
-          npm install
-          pm2 start index.js
+          if [ -d "arithmetic_operations_logs" ]; then
+            echo "si existe"
+          else
+            echo "NOT found."
+          fi
