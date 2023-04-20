@@ -8,6 +8,8 @@ jobs:
   build:
     name: Build and check repository
     runs-on: ubuntu-latest
+    
     steps:
-      - name: checkout main
-      - user: actions/checkout@master
+
+    - name: checkout main
+      user: actions/checkout@master
