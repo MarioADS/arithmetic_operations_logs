@@ -28,7 +28,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          git clone https://github.com/MarioADS/arithmetic_operations_logs.git |
-          cd arithmetic_operations_logs |
-          npm install |
+          git clone https://github.com/MarioADS/arithmetic_operations_logs.git
+          cd arithmetic_operations_logs
+          npm install
           pm2 start index.js --name cicd_actions
