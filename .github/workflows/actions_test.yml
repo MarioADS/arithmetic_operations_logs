@@ -14,11 +14,21 @@ jobs:
     - name: checkout main
       uses: actions/checkout@master
     
-    - name: executing remote ssh commands using password
+  deploy:
+    name: Deploy app
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.10
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: uname -r
+        script: |
+          git clone https://github.com/MarioADS/arithmetic_operations_logs.git |
+          cd arithmetic_operations_logs |
+          npm install |
+          pm2 start index.js --name cicd_actions
