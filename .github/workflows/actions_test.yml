@@ -29,7 +29,13 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           if [ -d "arithmetic_operations_logs" ]; then
-            echo "si existe"
+            cd arithmetic_operations_logs
+            git pull origin main
+            npm install
+            pm2 restart cicd_actions
           else
-            echo "NOT found."
+            git clone https://github.com/MarioADS/arithmetic_operations_logs.git
+            cd arithmetic_operations_logs
+            npm install
+            pm2 start index.js --name cicd_actions
           fi
